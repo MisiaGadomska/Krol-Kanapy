@@ -129,7 +129,6 @@ func _on_area_entered(area):
 		get_parent().call_deferred("add_child", nowy)
 		ogon.append(nowy)
 		
-		if has_node("AudioStreamPlayer2D"): $AudioStreamPlayer2D.play()
 		sprawdz_czy_nastepny_poziom()
 		return
 
