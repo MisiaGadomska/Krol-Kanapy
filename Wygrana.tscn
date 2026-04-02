@@ -1,0 +1,149 @@
+[gd_scene format=3 uid="uid://bydwtptmov5x3"]
+
+[ext_resource type="Script" uid="uid://cnrd5cbd352xp" path="res://wygrana.gd" id="1_02ocp"]
+[ext_resource type="FontFile" uid="uid://dqfximw6q5cca" path="res://upheaval/upheavtt.ttf" id="1_gm0kv"]
+[ext_resource type="Texture2D" uid="uid://o7u0860jcxdq" path="res://tlogry.png" id="2_m8ac3"]
+[ext_resource type="AudioStream" uid="uid://clk575h64yr8v" path="res://456966__funwithsound__success-fanfare-trumpets.mp3" id="4_sy0hf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_02ocp"]
+bg_color = Color(0.8851154, 0.68664354, 0.6905302, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.3254902, 0.34117648, 0.41960785, 1)
+corner_radius_top_left = 17
+corner_radius_top_right = 17
+corner_radius_bottom_right = 17
+corner_radius_bottom_left = 17
+shadow_color = Color(0.4198134, 0.41981304, 0.41981322, 0.6313726)
+shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m8ac3"]
+bg_color = Color(0.77052903, 0.38812438, 0.4148129, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.3254902, 0.34117648, 0.41960785, 1)
+corner_radius_top_left = 17
+corner_radius_top_right = 17
+corner_radius_bottom_right = 17
+corner_radius_bottom_left = 17
+expand_margin_top = 5.0
+expand_margin_right = 2.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sy0hf"]
+bg_color = Color(1, 0.37649786, 0.43215832, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.3254902, 0.34117648, 0.41960785, 1)
+corner_radius_top_left = 17
+corner_radius_top_right = 17
+corner_radius_bottom_right = 17
+corner_radius_bottom_left = 17
+expand_margin_top = 5.0
+expand_margin_right = 2.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="Gradient" id="Gradient_sy0hf"]
+offsets = PackedFloat32Array(0.027131783, 0.18217054, 0.39147288, 0.5852713, 0.7868217, 0.9186047)
+colors = PackedColorArray(0.5109455, 0.75270605, 0.68820447, 1, 0.7663142, 0.55239236, 0.9881025, 1, 0.7962608, 0.8360492, 0.43460512, 1, 0.90752536, 0.30452344, 0.2600846, 1, 0.10979127, 0.4547239, 0.70975024, 1, 1, 0.43123266, 0.8434809, 1)
+
+[node name="EkranWygranej" type="Control" unique_id=1298444904]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_02ocp")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2092532400]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_m8ac3")
+
+[node name="NapisGratulacje" type="Label" parent="." unique_id=1830465720]
+layout_mode = 0
+offset_left = 347.0
+offset_top = 57.0
+offset_right = 781.0
+offset_bottom = 121.0
+theme_override_constants/outline_size = 19
+theme_override_fonts/font = ExtResource("1_gm0kv")
+theme_override_font_sizes/font_size = 70
+text = "GRATULACJE!"
+
+[node name="Label" type="Label" parent="." unique_id=508738949]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -214.0
+offset_right = 251.0
+offset_bottom = -147.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("1_gm0kv")
+theme_override_font_sizes/font_size = 34
+text = "
+WSZYSTKIE KOTKI URATOWANE!"
+
+[node name="PrzyciskRestart" type="Button" parent="." unique_id=952754819]
+layout_mode = 0
+offset_left = 430.0
+offset_top = 201.0
+offset_right = 718.0
+offset_bottom = 252.0
+theme_override_colors/font_color = Color(0.3254902, 0.34117648, 0.41960785, 1)
+theme_override_fonts/font = ExtResource("1_gm0kv")
+theme_override_font_sizes/font_size = 27
+theme_override_styles/normal = SubResource("StyleBoxFlat_02ocp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m8ac3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sy0hf")
+text = "zagraj od nowa"
+
+[node name="PrzyciskWyjdz" type="Button" parent="." unique_id=43753756]
+layout_mode = 0
+offset_left = 433.0
+offset_top = 269.0
+offset_right = 719.0
+offset_bottom = 318.0
+theme_override_colors/font_color = Color(0.3254902, 0.34117648, 0.41960785, 1)
+theme_override_fonts/font = ExtResource("1_gm0kv")
+theme_override_font_sizes/font_size = 27
+theme_override_styles/normal = SubResource("StyleBoxFlat_02ocp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m8ac3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sy0hf")
+text = "WYJDz z gry"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=354815214]
+position = Vector2(573, -14)
+amount = 100
+lifetime = 4.37
+emission_shape = 3
+emission_rect_extents = Vector2(600, 1)
+spread = 32.52
+gravity = Vector2(0, 300)
+initial_velocity_max = 51.85
+angular_velocity_min = -185.57
+angular_velocity_max = 170.72
+scale_amount_min = 6.0
+scale_amount_max = 14.0
+color_ramp = SubResource("Gradient_sy0hf")
+
+[node name="WielkieFanfary" type="AudioStreamPlayer2D" parent="." unique_id=1337759835]
+stream = ExtResource("4_sy0hf")
+autoplay = true
+
+[connection signal="pressed" from="PrzyciskRestart" to="." method="_on_przycisk_restart_pressed"]
+[connection signal="pressed" from="PrzyciskWyjdz" to="." method="_on_przycisk_wyjdz_pressed"]

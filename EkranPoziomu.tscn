@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bgyvoiwlxgcag"]
+
+[ext_resource type="Script" uid="uid://dayvhc7l7vntn" path="res://ekran_poziomu.gd" id="1_nbu0c"]
+[ext_resource type="FontFile" uid="uid://c4aqh0jtamw1g" path="res://04b_30/04B_30__.TTF" id="2_fhgph"]
+[ext_resource type="FontFile" uid="uid://dqfximw6q5cca" path="res://upheaval/upheavtt.ttf" id="3_fhgph"]
+
+[node name="EkranPoziomu" type="CanvasLayer" unique_id=1684622584]
+process_mode = 3
+script = ExtResource("1_nbu0c")
+
+[node name="NapisPoziomu" type="Label" parent="." unique_id=673127601]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -218.0
+offset_top = -36.5
+offset_right = 218.0
+offset_bottom = 36.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8897008, 0.7852558, 0.07869982, 1)
+theme_override_colors/font_outline_color = Color(0.8451742, 0.07581224, 0, 1)
+theme_override_constants/outline_size = 24
+theme_override_fonts/font = ExtResource("2_fhgph")
+theme_override_font_sizes/font_size = 83
+text = "LEVEL 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InstrukcjaLabel" type="Label" parent="." unique_id=1773079537]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -257.0
+offset_top = 35.0
+offset_right = 247.0
+offset_bottom = 94.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8897008, 0.7852558, 0.07869982, 1)
+theme_override_colors/font_outline_color = Color(0.8451742, 0.07581224, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("3_fhgph")
+theme_override_font_sizes/font_size = 34
+text = "Zjedz 5 myszek"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://ds3orka254d6w"]
+
+[ext_resource type="Script" uid="uid://cw65lf64qov07" path="res://mama_kotka.gd" id="1_ny18k"]
+[ext_resource type="AudioStream" uid="uid://716gly61cs1x" path="res://miau (mp3cut.net).mp3" id="2_ny18k"]
+[ext_resource type="AudioStream" uid="uid://dhln31adi5og4" path="res://win_mrohePYM.mp3" id="3_xi5c1"]
+[ext_resource type="AudioStream" uid="uid://p2qiubetxxva" path="res://crash.mp3" id="4_et7vq"]
+[ext_resource type="AudioStream" uid="uid://b2ryni2gpqtfh" path="res://gameover.wav" id="5_igffk"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7k277"]
+load_path = "res://.godot/imported/Mama_Kotka.png-da9931ed3d9ae4d1ae954f57edf15382.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ny18k"]
+size = Vector2(60, 54)
+
+[node name="MamaKotka" type="Area2D" unique_id=1777740511]
+z_index = 1
+collision_mask = 15
+script = ExtResource("1_ny18k")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=971563599]
+position = Vector2(-0.50000525, 1.5000033)
+scale = Vector2(0.18, 0.17)
+texture = SubResource("CompressedTexture2D_7k277")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=160772499]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_ny18k")
+
+[node name="DzwiekMyszki" type="AudioStreamPlayer2D" parent="." unique_id=440819937]
+stream = ExtResource("2_ny18k")
+volume_db = 6.208
+
+[node name="DzwiekWygranej" type="AudioStreamPlayer2D" parent="." unique_id=2032771327]
+stream = ExtResource("3_xi5c1")
+
+[node name="DzwiekUderzenia" type="AudioStreamPlayer2D" parent="." unique_id=2076446276]
+process_mode = 3
+stream = ExtResource("4_et7vq")
+
+[node name="DzwiekGameOver" type="AudioStreamPlayer2D" parent="." unique_id=1212209788]
+process_mode = 3
+stream = ExtResource("5_igffk")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

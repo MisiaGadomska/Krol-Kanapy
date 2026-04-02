@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dusvf2y6772j1"]
+
+[ext_resource type="Script" uid="uid://c05ricyrk182v" path="res://pies.gd" id="1_kx1qd"]
+[ext_resource type="Texture2D" uid="uid://bvxe2kuvp66oa" path="res://pies.png" id="2_x84gu"]
+[ext_resource type="AudioStream" uid="uid://1dy02giflmhs" path="res://dog.wav" id="3_x84gu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ag2j0"]
+size = Vector2(66, 72)
+
+[node name="Pies" type="Area2D" unique_id=1891510652]
+position = Vector2(495, 289)
+collision_layer = 4
+script = ExtResource("1_kx1qd")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=367926078]
+position = Vector2(-1, -0.99998474)
+scale = Vector2(0.31203008, 0.31167108)
+texture = ExtResource("2_x84gu")
+region_enabled = true
+region_rect = Rect2(26.481476, 18.122093, 266.64056, 377.52078)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1792295797]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_ag2j0")
+
+[node name="DzwiekSzczekania" type="AudioStreamPlayer2D" parent="." unique_id=1397034228]
+stream = ExtResource("3_x84gu")
+volume_db = 9.0
+max_distance = 272.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

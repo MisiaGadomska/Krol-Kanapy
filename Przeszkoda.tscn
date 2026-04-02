@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cirgumpbkf6na"]
+
+[ext_resource type="Texture2D" uid="uid://bbnf1i23urpbt" path="res://coastal_furnitureset.png" id="1_a7afq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l88cm"]
+size = Vector2(42, 30.5)
+
+[node name="Przeszkoda" type="Area2D" unique_id=752355154 groups=["przeszkody"]]
+scale = Vector2(2, 2)
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=111488998]
+position = Vector2(1.5, -8.75)
+scale = Vector2(0.984375, 0.95689654)
+texture = ExtResource("1_a7afq")
+region_enabled = true
+region_rect = Rect2(69.43997, 24.050352, 53.094345, 39.065353)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1953121003]
+position = Vector2(1.5, -10.25)
+shape = SubResource("RectangleShape2D_l88cm")

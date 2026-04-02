@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://drkcf1qycbtif"]
+
+[ext_resource type="Script" uid="uid://c4t1oqohmugwd" path="res://maly_kotek.gd" id="1_52que"]
+[ext_resource type="Texture2D" uid="uid://hbeo2kx423ja" path="res://MalyKotek.png" id="1_wwhjw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fogrl"]
+size = Vector2(216.66663, 199.99997)
+
+[node name="MalyKotek" type="Area2D" unique_id=1178452681 groups=["ogon"]]
+scale = Vector2(0.18, 0.18)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_52que")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=255354574]
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("1_wwhjw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=685621736]
+position = Vector2(-8.333334, -27.777782)
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("RectangleShape2D_fogrl")

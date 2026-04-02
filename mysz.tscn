@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dn4puenk0jd6i"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ti16p"]
+load_path = "res://.godot/imported/mysz.png-700ef16a40c6afc4ab5e772ec2b3e5ff.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_32cc7"]
+size = Vector2(207.69232, 392.3077)
+
+[node name="Mysz" type="Area2D" unique_id=1771333366]
+scale = Vector2(0.13, 0.13)
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=904202147]
+texture = SubResource("CompressedTexture2D_ti16p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=846281270]
+position = Vector2(-34.615387, -19.230776)
+shape = SubResource("RectangleShape2D_32cc7")
