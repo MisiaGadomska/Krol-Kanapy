@@ -1,6 +1,6 @@
 extends Area2D
 
-# --- ZMIENNE GŁÓWNE ---
+#ZMIENNE GŁÓWNE
 var skok = 64
 var punkty = 0
 var stara_pozycja_globalna = Vector2.ZERO
@@ -9,7 +9,7 @@ var czy_wygrana = false
 var pozostały_czas = 60.0
 var timer_aktywny = false
 
-# --- ZASOBY I KOLORY ---
+#KOLORY
 var scena_malego_kotka = preload("res://MalyKotek.tscn")
 var kolory_ogonka = [
 	Color(0.55, 0.55, 0.55), Color(0.46, 0.23, 0.0), 
@@ -20,12 +20,12 @@ var kolory_ogonka = [
 var ogon = []
 var historia_pozycji = []
 
-# --- START POZIOMU ---
+#START POZIOMU
 func _ready():
 	z_index = 5
 	czy_koniec = true 
 	
-	# Ustawienie czasu zależnie od poziomu
+	# Ustawienie czasu
 	var nazwa_mapy = get_tree().current_scene.name
 	if nazwa_mapy == "Poziom4":
 		pozostały_czas = 80.0
@@ -41,19 +41,19 @@ func _ready():
 	czy_koniec = false
 	timer_aktywny = true # Włączamy odliczanie po zniknięciu napisu
 	
-# --- PĘTLA RUCHU ---
+#PĘTLA RUCHU
 func _process(delta):
 	if czy_koniec or czy_wygrana: return
 	
-	# --- LOGIKA TIMERA ---
+	#LOGIKA TIMERA
 	if timer_aktywny:
 		pozostały_czas -= delta
-		# Aktualizacja napisu (jeśli masz Label o nazwie LicznikCzasu)
+		
 		var label_czas = get_node_or_null("%LicznikCzasu")
 		if label_czas:
 			label_czas.text = "Czas: " + str(int(pozostały_czas))
 		
-		# Koniec czasu = Przegrana
+		# Koniec czasu
 		if pozostały_czas <= 0:
 			print("PRZEGRANA: Koniec czasu!")
 			koniec_gry()
@@ -82,24 +82,24 @@ func _process(delta):
 		if position.x < 32 or position.x > 1120 or position.y < 32 or position.y > 625:
 			koniec_gry()
 
-# --- MECHANIKA OGONA ---
+#MECHANIKA OGONA
 func aktualizuj_ogon():
 	for i in range(ogon.size()):
 		if i < historia_pozycji.size():
 			ogon[i].position = historia_pozycji[i]
 			if not ogon[i].is_in_group("ogon"):
 				ogon[i].add_to_group("ogon")
-			# Ustawiamy ogon na warstwie 3 (pod Mamą, ale nad myszką i tłem)
+			#ogon na warstwie 3 
 			ogon[i].z_index = 3
 
-# --- KOLIZJE ---
+#KOLIZJE
 func _on_area_entered(area):
 	if czy_wygrana or czy_koniec: return
 	
-	# --- 1. ZBIERANIE MYSZKI ---
+	#ZBIERANIE MYSZKI
 	if "Mysz" in area.name:
 		$DzwiekMyszki.play()
-		area.z_index = 2 # Myszka na warstwie 2 (nad tłem, pod ogonem)
+		area.z_index = 2 # Myszka na warstwie 2
 		
 		var wolne = false
 		while not wolne:
@@ -110,7 +110,6 @@ func _on_area_entered(area):
 				
 			var query = PhysicsPointQueryParameters2D.new()
 			query.position = proba
-			# Maska 2 powinna być ustawiona dla mebli i choinek w Inspektorze!
 			query.collision_mask = 2 
 			query.collide_with_areas = true
 			
@@ -125,7 +124,7 @@ func _on_area_entered(area):
 		
 		var nowy = scena_malego_kotka.instantiate()
 		nowy.get_node("Sprite2D").modulate = kolory_ogonka.pick_random()
-		nowy.z_index = 3 # Małe kotki pod Mamą
+		nowy.z_index = 3 
 		nowy.position = stara_pozycja_globalna if ogon.size() == 0 else ogon.back().position
 		get_parent().call_deferred("add_child", nowy)
 		ogon.append(nowy)
@@ -134,7 +133,7 @@ func _on_area_entered(area):
 		sprawdz_czy_nastepny_poziom()
 		return
 
-	# --- 2. KOLIZJA Z OGONEM ---
+	#KOLIZJA Z OGONEM
 	if area.is_in_group("ogon"):
 		var indeks = ogon.find(area)
 		if indeks > 2:
@@ -142,7 +141,7 @@ func _on_area_entered(area):
 			koniec_gry()
 		return
 
-	# --- 3. PRZESZKODY I PIES ---
+	#PRZESZKODY I PIES
 	if area.is_in_group("przeszkody") or "Przeszkoda" in area.name:
 		print("PRZEGRANA: Mebel!")
 		koniec_gry()
@@ -153,7 +152,7 @@ func _on_area_entered(area):
 		koniec_gry()
 		return
 
-# --- KONIEC GRY ---
+#KONIEC GRY
 func koniec_gry():
 	if czy_koniec or czy_wygrana: return
 	czy_koniec = true
@@ -168,7 +167,7 @@ func koniec_gry():
 	else:
 		get_tree().paused = true
 
-# --- POZIOMY ---
+#POZIOMY
 func sprawdz_czy_nastepny_poziom():
 	var nazwa = get_tree().current_scene.name
 	var awans = false
@@ -190,6 +189,6 @@ func sprawdz_czy_nastepny_poziom():
 		get_tree().call_deferred("change_scene_to_file", "res://" + mapy[nazwa] + ".tscn")
 
 func _on_przycisk_x_pressed():
-	# Wersja bezpieczna dla przeglądarki (Restart zamiast Quit)
-	get_tree().paused = false
+	
+	get_tree().quit()
 	get_tree().reload_current_scene()

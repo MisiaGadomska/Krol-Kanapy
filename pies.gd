@@ -12,7 +12,7 @@ func _ready():
 	pozycja_startowa = position.y
 
 func _process(delta):
-	# 1. RUCH PSA
+	#RUCH PSA
 	position.y += predkosc * kierunek * delta
 	
 	if position.y > pozycja_startowa + dystans:
@@ -20,7 +20,7 @@ func _process(delta):
 	elif position.y < pozycja_startowa - 50:
 		kierunek = 1
 
-	# 2. LOGIKA SZCZEKANIA
+	#LOGIKA SZCZEKANIA
 	var kotka = get_tree().current_scene.find_child("MamaKotka", true, false)
 	
 	if kotka:
@@ -38,7 +38,6 @@ func _process(delta):
 				
 				timer_szczekania = 1.5 
 
-# --- NOWA SEKCJA: KOLIZJE ---
 func _on_area_entered(area):
 	# Pies sprawdza, czy to, co dotknął, to Mama Kotka
 	if area.name == "MamaKotka":
@@ -47,6 +46,5 @@ func _on_area_entered(area):
 			area.koniec_gry()
 	
 	# Jeśli area należy do grupy "ogon", pies NIC nie robi.
-	# Dzięki temu przebiega przez małe kotki bez wywoływania przegranej.
 	if area.is_in_group("ogon"):
 		pass
